@@ -1,7 +1,9 @@
-const repositories = require('../repositories/index')
+// const repositories = require('../repositories/index')
+const repositories = require('../services/db')
 
 const status =  async (request, h)=>{
-    return await repositories.getAll()
+   const result = await repositories.query()
+   return result
 }
 
 module.exports =  {

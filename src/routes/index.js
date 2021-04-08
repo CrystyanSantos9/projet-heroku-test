@@ -8,7 +8,7 @@ const root = ({
     handler: status,
     options: {
         tags: ['api'], //tenho que ter pelo menos essa tag
-        description: 'Verificação do status da aplicação', 
+        description: 'Listar usuários', 
         notes: 'Pode ser utilizado para ver o status da aplicação'
     }
 })
