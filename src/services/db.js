@@ -2,22 +2,21 @@ const mysql = require('mysql')
 const config = require('../../config')
 
 const connection = mysql.createConnection(config.db)
+// connection.connect()
 
-const query =  ()=>{
+connection.connect()
+
+const execute =  ()=>{
     return new Promise((resolve, reject)=>{
-        connection.connect((err)=>{
-            if(err) throw err 
-            connection.query('SELECT * FROM usuarios', (error, result, fields)=>{
-                if(error) reject (error) 
-                console.log(result)
-                return resolve(result)
-                
-                connection.end()
-            })
-        })
-    })
+            connection.query('SELECT * FROM usuarios', (err, result, fields)=>{
+               if(err) return reject(err)
+                    resolve(result)
+                    // connection.end() 
+                    console.log(result)
+            })    
+        })        
 }
 
 module.exports = {
-    query
+    execute
 }

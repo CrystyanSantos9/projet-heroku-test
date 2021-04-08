@@ -2,7 +2,7 @@
 const repositories = require('../services/db')
 
 const status =  async (request, h)=>{
-   const result = await repositories.query()
+   const result = await repositories.execute().then(result=>result )
    return result
 }
 
